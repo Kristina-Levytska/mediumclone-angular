@@ -1,6 +1,4 @@
-import { state } from '@angular/animations';
 import { ActionCreator, createReducer, on } from '@ngrx/store';
-import { Action } from 'rxjs/internal/scheduler/Action';
 import { AuthStateInterface } from '../types/authState.interface';
 import { registerAction } from './actions/register.action';
 
@@ -22,3 +20,5 @@ const authReducer = createReducer(
 export function reducers(state: AuthStateInterface, action: ActionCreator) {
   return authReducer(state, action);
 }
+
+export const AUTH_STORE_KEY = 'AUTH_STORE_KEY';

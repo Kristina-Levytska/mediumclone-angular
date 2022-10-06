@@ -4,9 +4,11 @@ import {
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { Action } from 'rxjs/internal/scheduler/Action';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CurrentUserInterface } from 'src/app/shared/types/current-user.interface';
 import { registerAction } from '../../store/actions/register.action';
+import { isSubmittingSelector } from '../../store/selectors';
 
 @Component({
   selector: 'app-register',
@@ -15,11 +17,13 @@ import { registerAction } from '../../store/actions/register.action';
 })
 export class RegisterComponent implements OnInit {
   public form!: UntypedFormGroup;
+  isSubmitting$!: Observable<boolean>;
 
   constructor(private fb: UntypedFormBuilder, private store: Store) {}
 
   ngOnInit(): void {
     this.initializeForm();
+    this.intializeValue();
   }
 
   public initializeForm(): void {
@@ -27,6 +31,14 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       email: '',
       password: '',
+    });
+  }
+
+  private intializeValue(): void {
+    this.isSubmitting$ = this.store.select(isSubmittingSelector);
+
+    this.isSubmitting$.subscribe((data) => {
+      console.log(data);
     });
   }
 

@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    HttpClientModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
