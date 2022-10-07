@@ -6,6 +6,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { StoreModule } from '@ngrx/store';
 import { AUTH_STORE_KEY, reducers } from './store/reducers';
 import { AuthService } from '../services/auth.service';
+import { RegisterEffect } from './store/effects/register.effect';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -13,6 +15,7 @@ import { AuthService } from '../services/auth.service';
     CommonModule,
     ReactiveFormsModule,
     StoreModule.forFeature(AUTH_STORE_KEY, reducers),
+    EffectsModule.forFeature([RegisterEffect]),
   ],
   providers: [AuthService],
 })
