@@ -33,11 +33,11 @@
                 type="password"
                 class="form-control form-control-lg"
                 placeholder="Password"
+                formControlName="password"
               />
               <button
                 class="btn btn-lg btn-primary pull-xs-right"
                 type="submit"
-                formControlName="password"
                 [disabled]="(isSubmitting$ | async) || false"
               >
                 Sign Up!
