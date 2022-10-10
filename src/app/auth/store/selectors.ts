@@ -9,3 +9,8 @@ export const isSubmittingSelector = createSelector(
   authFeatureSelector,
   (state) => state.isSubmitting
 );
+
+export const validationErrorsSelector = createSelector(
+  authFeatureSelector, //птмч мы знаем, что это поле находится внутри authState
+  (authState: AuthStateInterface) => authState.validationErrors
+);

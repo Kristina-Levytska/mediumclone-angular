@@ -7,7 +7,10 @@
         <p class="text-xs-center">
           <a routerLink="['/register']">Have an account?</a>
         </p>
-        Backend errors are here
+        <mc-backend-error-messages
+          *ngIf="backendErrors$ | async"
+          [backendErrorsProps]="backendErrors$ | async"
+        ></mc-backend-error-messages>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <fieldset>
             <fieldset class="form-group">

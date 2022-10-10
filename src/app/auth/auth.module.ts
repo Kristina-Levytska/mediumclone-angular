@@ -8,6 +8,8 @@ import { AUTH_STORE_KEY, reducers } from './store/reducers';
 import { AuthService } from '../services/auth.service';
 import { RegisterEffect } from './store/effects/register.effect';
 import { EffectsModule } from '@ngrx/effects';
+import { BackendErrorMessagesComponent } from '../shared/modules/backendErrorMessages/components/backendErrorMessages/backend-error-messages/backend-error-messages.component';
+import { BackendErrorMessagesModule } from '../shared/modules/backendErrorMessages/backend-error-messages/backend-error-messages.module';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -16,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
     ReactiveFormsModule,
     StoreModule.forFeature(AUTH_STORE_KEY, reducers),
     EffectsModule.forFeature([RegisterEffect]),
+    BackendErrorMessagesModule,
   ],
   providers: [AuthService],
 })

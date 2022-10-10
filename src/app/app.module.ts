@@ -12,7 +12,6 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-import { RegisterEffect } from './auth/store/effects/register.effect';
 
 const routes: Routes = [
   {
