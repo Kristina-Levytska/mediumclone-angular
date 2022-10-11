@@ -1,9 +1,4 @@
 import { Injectable } from '@angular/core';
-import {
-  registerAction,
-  registerFailureAction,
-  registerSuccessAction,
-} from '../actions/register.action';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,21 +7,26 @@ import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PersistenceService } from 'src/app/shared/services/persistence.service';
 import { Router } from '@angular/router';
+import {
+  loginAction,
+  loginFailureAction,
+  loginSuccessAction,
+} from '../actions/login.action';
 
 @Injectable()
-export class RegisterEffect {
+export class LoginEffect {
   register$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(registerAction),
+      ofType(loginAction),
       switchMap(({ request }) => {
-        return this.authService.register(request).pipe(
+        return this.authService.login(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.persistenceService.set('accessToken', currentUser.token);
-            return registerSuccessAction({ currentUser });
+            return loginSuccessAction({ currentUser });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              registerFailureAction({ error: errorResponse.error.error })
+              loginFailureAction({ errors: errorResponse.error.error })
             );
           })
         );
@@ -37,7 +37,7 @@ export class RegisterEffect {
   redirectAfterLogin$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(registerSuccessAction),
+        ofType(loginSuccessAction),
         tap(() => {
           this.router.navigateByUrl('/');
         })
