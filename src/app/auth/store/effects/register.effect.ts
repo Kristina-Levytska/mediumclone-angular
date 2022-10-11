@@ -5,13 +5,14 @@ import {
   registerSuccessAction,
 } from '../actions/register.action';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { CurrentUserInterface } from 'src/app/shared/types/current-user.interface';
 import { of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { BackendErrorsInterface } from 'src/app/shared/types/backend-errors.interface';
 import { PersistenceService } from 'src/app/shared/services/persistence.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class RegisterEffect {
@@ -34,9 +35,21 @@ export class RegisterEffect {
     )
   );
 
+  redirectAfterLogin$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(registerSuccessAction),
+        tap(() => {
+          this.router.navigateByUrl('/');
+        })
+      ),
+    { dispatch: false }
+  );
+
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    private persistenceService: PersistenceService
+    private persistenceService: PersistenceService,
+    private router: Router
   ) {}
 }
