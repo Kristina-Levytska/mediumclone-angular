@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AuthResponseInterface } from '../auth/types/authResponse.interface';
 import { LoginRequestInterface } from '../auth/types/loginRequest.interface';
+import { AuthServiceMock } from './auth.service.mock';
+
+const mockServer = new AuthServiceMock();
 
 @Injectable({
   providedIn: 'root',
@@ -18,18 +21,30 @@ export class AuthService {
   }
 
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
-    const url = environment.apiUrl + '/users';
+    // const url = environment.apiUrl + '/users';
 
-    return this.http
-      .post<AuthResponseInterface>(url, data)
-      .pipe(map(this.getUser));
+    // return this.http
+    //   .post<AuthResponseInterface>(url, data)
+    //   .pipe(map(this.getUser));
+
+    return mockServer.register();
   }
 
   login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
-    const url = environment.apiUrl + '/users/login';
+    // const url = environment.apiUrl + '/users/login';
 
-    return this.http
-      .post<AuthResponseInterface>(url, data)
-      .pipe(map(this.getUser));
+    // return this.http
+    //   .post<AuthResponseInterface>(url, data)
+    //   .pipe(map(this.getUser));
+
+    return mockServer.login();
+  }
+
+  getCurrentUser(): Observable<CurrentUserInterface> {
+    // const url = environment.apiUrl + '/user';
+
+    // return this.http.get(url).pipe(map(this.getUser));
+
+    return mockServer.getUser();
   }
 }
