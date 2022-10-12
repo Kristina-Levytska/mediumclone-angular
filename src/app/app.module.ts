@@ -8,17 +8,9 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
-import { RegisterComponent } from './auth/components/register/register.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
-
-const routes: Routes = [
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
-];
 
 @NgModule({
   declarations: [AppComponent],
