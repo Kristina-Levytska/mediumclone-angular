@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { TopbarModule } from './shared/modules/topbar/topbar.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { EffectsModule } from '@ngrx/effects';
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     EffectsModule.forRoot([]),
+    TopbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

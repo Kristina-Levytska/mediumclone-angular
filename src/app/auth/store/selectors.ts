@@ -14,3 +14,18 @@ export const validationErrorsSelector = createSelector(
   authFeatureSelector, //птмч мы знаем, что это поле находится внутри authState
   (authState: AuthStateInterface) => authState.validationErrors
 );
+
+export const isLoggedInSelector = createSelector(
+  authFeatureSelector,
+  (authState: AuthStateInterface) => authState.isLoggedIn === true
+);
+
+export const isNotLoggedInSelector = createSelector(
+  authFeatureSelector,
+  (authState: AuthStateInterface) => authState.isLoggedIn === false
+);
+
+export const currentUserSelector = createSelector(
+  authFeatureSelector,
+  (authState: AuthStateInterface) => authState.currentUser
+);
