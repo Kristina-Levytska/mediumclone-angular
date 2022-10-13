@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes } from '@angular/router';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -14,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TopbarModule } from './shared/modules/topbar/topbar.module';
 import { AuthInterceptor } from './shared/services/authinterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
+import { GlobalFeedModule } from './global-feed/global-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +31,7 @@ import { PersistenceService } from './shared/services/persistence.service';
     }),
     EffectsModule.forRoot([]),
     TopbarModule,
+    GlobalFeedModule,
   ],
   providers: [
     PersistenceService,
