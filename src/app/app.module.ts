@@ -13,7 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TopbarModule } from './shared/modules/topbar/topbar.module';
 import { AuthInterceptor } from './shared/services/authinterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
-import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { GlobalFeedModule } from './shared/global-feed/global-feed.module';
 
 @NgModule({
   declarations: [AppComponent],

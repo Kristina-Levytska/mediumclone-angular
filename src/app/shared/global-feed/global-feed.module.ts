@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GlobalFeedComponent } from './components/global-feed/global-feed.component';
 import { RouterModule } from '@angular/router';
-import { FeedModule } from '../shared/feed/feed.module';
+import { FeedModule } from '../modules/feed/feed.module';
 
 const routes = [
   {
