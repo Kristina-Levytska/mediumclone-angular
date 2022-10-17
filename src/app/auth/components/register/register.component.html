@@ -6,10 +6,10 @@
         <p class="text-xs-center">
           <a routerLink="['/login']">Have an account?</a>
         </p>
-        <mc-backend-error-messages
+        <lf-backend-error-messages
           *ngIf="backendErrors$ | async"
           [backendErrorsProps]="backendErrors$ | async"
-        ></mc-backend-error-messages>
+        ></lf-backend-error-messages>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <fieldset>
             <fieldset class="form-group">

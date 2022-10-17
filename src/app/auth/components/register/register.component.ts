@@ -15,7 +15,7 @@ import {
 import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 
 @Component({
-  selector: 'mc-register',
+  selector: 'lf-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

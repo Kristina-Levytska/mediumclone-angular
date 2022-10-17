@@ -7,6 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { FEED_STORE_KEY, reducers } from '../feed/store/reducers';
 import { FeedService } from './services/feed.service';
 import { RouterModule } from '@angular/router';
+import { ErrorMessageModule } from '../error-message/error-message.module';
+import { IsLoadingModule } from '../is-loading/is-loading.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -15,6 +17,8 @@ import { RouterModule } from '@angular/router';
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature(FEED_STORE_KEY, reducers),
     RouterModule,
+    ErrorMessageModule,
+    IsLoadingModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],

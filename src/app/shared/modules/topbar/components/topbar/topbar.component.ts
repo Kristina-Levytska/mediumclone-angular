@@ -9,7 +9,7 @@ import {
 import { CurrentUserInterface } from 'src/app/shared/types/current-user.interface';
 
 @Component({
-  selector: 'mc-topbar',
+  selector: 'lf-topbar',
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.scss'],
 })

@@ -10,7 +10,7 @@ import {
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';
 
 @Component({
-  selector: 'mc-feed',
+  selector: 'lf-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'mc-global-feed',
+  selector: 'lf-global-feed',
   templateUrl: './global-feed.component.html',
   styleUrls: ['./global-feed.component.scss'],
 })

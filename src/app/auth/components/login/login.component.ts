@@ -11,7 +11,7 @@ import {
 import { LoginRequestInterface } from '../../types/loginRequest.interface';
 
 @Component({
-  selector: 'mc-login',
+  selector: 'lf-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
