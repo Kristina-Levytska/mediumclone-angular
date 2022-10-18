@@ -24,5 +24,10 @@
       TAGS
     </a>
   </div>
-  PAGINATION
+  <lf-pagination
+    [totalProps]="(feed$ | async).articlesCount"
+    [limitProps]="limit"
+    [urlProps]="baseUrl"
+    [currentPageProps]="currentPage"
+  ></lf-pagination>
 </div>

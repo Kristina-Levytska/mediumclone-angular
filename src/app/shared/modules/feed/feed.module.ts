@@ -9,6 +9,7 @@ import { FeedService } from './services/feed.service';
 import { RouterModule } from '@angular/router';
 import { ErrorMessageModule } from '../error-message/error-message.module';
 import { IsLoadingModule } from '../is-loading/is-loading.module';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -19,6 +20,7 @@ import { IsLoadingModule } from '../is-loading/is-loading.module';
     RouterModule,
     ErrorMessageModule,
     IsLoadingModule,
+    PaginationModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],
