@@ -14,6 +14,7 @@ import { TopbarModule } from './shared/modules/topbar/topbar.module';
 import { AuthInterceptor } from './shared/services/authinterceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { GlobalFeedModule } from './global-feed/global-feed.module';
     AppRoutingModule,
     AuthModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ router: routerReducer }, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
@@ -32,6 +33,7 @@ import { GlobalFeedModule } from './global-feed/global-feed.module';
     EffectsModule.forRoot([]),
     TopbarModule,
     GlobalFeedModule,
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     PersistenceService,
