@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { timeStamp } from 'console';
 import { Observable, Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { getFeedAction } from '../../store/actions/getFeed.action';

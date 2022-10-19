@@ -21,7 +21,7 @@
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>
-      TAGS
+      <lf-tag-list [tags]="article.tagList"> </lf-tag-list>
     </a>
   </div>
   <lf-pagination
