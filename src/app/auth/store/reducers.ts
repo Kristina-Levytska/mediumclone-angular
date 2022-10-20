@@ -1,5 +1,4 @@
 import { ActionCreator, createReducer, on } from '@ngrx/store';
-import { stat } from 'fs';
 import { AuthStateInterface } from '../types/authState.interface';
 import {
   getCurrentUserAction,
