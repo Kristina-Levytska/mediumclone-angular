@@ -7,7 +7,12 @@
     </li>
 
     <li class="nav-item">
-      <a [routerLink]="['/']" class="nav-link" routerLinkActive="active">
+      <a
+        [routerLink]="['/']"
+        class="nav-link"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Global Feed
       </a>
     </li>
