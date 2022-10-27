@@ -1,7 +1,7 @@
-import { PopularTagType } from 'src/app/shared/types/popular-tag.type';
+import { PopularTag } from './popular-tags.interface';
 
-export interface PopularTagsStateInterface {
-  data: PopularTagType[] | null;
+export interface PopularTagStateInterface {
+  data: PopularTag[] | null;
   error: string | null;
   isLoading: boolean;
 }

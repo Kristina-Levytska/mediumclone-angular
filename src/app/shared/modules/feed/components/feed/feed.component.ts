@@ -56,7 +56,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
       changes['apiUrlProps'].currentValue !==
         changes['apiUrlProps'].previousValue;
     if (isApiUrlChanged) {
-      this.fetchFeed;
+      this.fetchFeed();
     }
   }
 

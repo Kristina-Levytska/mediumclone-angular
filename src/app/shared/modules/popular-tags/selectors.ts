@@ -1,21 +1,21 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { POPULAR_TAGS_STORE_KEY } from './reducers';
-import { PopularTagsStateInterface } from './types/popular-tags-state.interface';
+import { PopularTagStateInterface } from './types/popular-tags-state.interface';
 
-export const popularTagsFeatureSelector =
-  createFeatureSelector<PopularTagsStateInterface>(POPULAR_TAGS_STORE_KEY);
+export const popularTagFeatureSelector =
+  createFeatureSelector<PopularTagStateInterface>(POPULAR_TAGS_STORE_KEY);
 
-export const popularTagsSelector = createSelector(
-  popularTagsFeatureSelector,
-  (popularTagsState: PopularTagsStateInterface) => popularTagsState.data
+export const popularTagSelector = createSelector(
+  popularTagFeatureSelector,
+  (popularTagState: PopularTagStateInterface) => popularTagState.data
 );
 
 export const isLoadingSelector = createSelector(
-  popularTagsFeatureSelector,
-  (popularTagsState: PopularTagsStateInterface) => popularTagsState.isLoading
+  popularTagFeatureSelector,
+  (popularTagState: PopularTagStateInterface) => popularTagState.isLoading
 );
 
 export const errorSelector = createSelector(
-  popularTagsFeatureSelector,
-  (popularTagsState: PopularTagsStateInterface) => popularTagsState.error
+  popularTagFeatureSelector,
+  (popularTagState: PopularTagStateInterface) => popularTagState.error
 );

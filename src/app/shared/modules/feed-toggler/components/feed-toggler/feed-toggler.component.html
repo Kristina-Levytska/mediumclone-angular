@@ -19,7 +19,7 @@
 
     <li class="nav-item" *ngIf="tagNameProps">
       <a
-        [routerLink]="['/tags, tagNameProps']"
+        [routerLink]="['/tags', tagNameProps]"
         class="nav-link"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true, tag: tagNameProps }"

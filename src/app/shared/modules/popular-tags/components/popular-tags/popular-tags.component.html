@@ -1,11 +1,11 @@
 <lf-loading *ngIf="isLoading$ | async"></lf-loading>
 <lf-error-message *ngIf="error$ | async"></lf-error-message>
 
-<div class="sidebar" *ngIf="popularTags$ | async">
+<div class="sidebar" *ngIf="popularTag$ | async">
   <p>popular tags</p>
   <div class="tag-list">
     <a
-      *ngFor="let popularTag of popularTags$ | async"
+      *ngFor="let popularTag of popularTag$ | async"
       [routerLink]="['/tags', popularTag]"
       class="tag-default tag-pill"
       >{{ popularTag }}</a

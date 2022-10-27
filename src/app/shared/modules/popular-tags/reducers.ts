@@ -1,45 +1,45 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import {
-  getPopularTagsAction,
-  getPopularTagsFailureAction,
-  getPopularTagsSuccessAction,
+  getPopularTagAction,
+  getPopularTagFailureAction,
+  getPopularTagSuccessAction,
 } from './store/actions/getPopularTags.action';
-import { PopularTagsStateInterface } from './types/popular-tags-state.interface';
+import { PopularTagStateInterface } from './types/popular-tags-state.interface';
 
-const initialState: PopularTagsStateInterface = {
+const initialState: PopularTagStateInterface = {
   data: null,
   error: null,
   isLoading: false,
 };
 
-const popularTagsReducer = createReducer(
+const PopularTagReducer = createReducer(
   initialState,
   on(
-    getPopularTagsAction,
-    (state): PopularTagsStateInterface => ({
+    getPopularTagAction,
+    (state): PopularTagStateInterface => ({
       ...state,
       isLoading: true,
     })
   ),
   on(
-    getPopularTagsSuccessAction,
-    (state, action): PopularTagsStateInterface => ({
+    getPopularTagSuccessAction,
+    (state, action): PopularTagStateInterface => ({
       ...state,
-      data: action.popularTags,
+      data: action.PopularTag,
       isLoading: false,
     })
   ),
   on(
-    getPopularTagsFailureAction,
-    (state): PopularTagsStateInterface => ({
+    getPopularTagFailureAction,
+    (state): PopularTagStateInterface => ({
       ...state,
       isLoading: false,
     })
   )
 );
 
-export function reducers(state: PopularTagsStateInterface, action: Action) {
-  return popularTagsReducer(state, action);
+export function reducers(state: PopularTagStateInterface, action: Action) {
+  return PopularTagReducer(state, action);
 }
 
 export const POPULAR_TAGS_STORE_KEY = 'POPULAR_TAGS_STORE_KEY';

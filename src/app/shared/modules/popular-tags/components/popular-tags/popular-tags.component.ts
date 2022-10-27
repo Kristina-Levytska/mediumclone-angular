@@ -1,20 +1,20 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { PopularTagType } from 'src/app/shared/types/popular-tag.type';
 import {
   errorSelector,
   isLoadingSelector,
-  popularTagsSelector,
+  popularTagSelector,
 } from '../../selectors';
-import { getPopularTagsAction } from '../../store/actions/getPopularTags.action';
+import { getPopularTagAction } from '../../store/actions/getPopularTags.action';
+import { PopularTag } from '../../types/popular-tags.interface';
 
 @Component({
   selector: 'lf-popular-tags',
   templateUrl: './popular-tags.component.html',
 })
-export class PopularTagsComponent implements OnInit {
-  popularTags$!: Observable<PopularTagType[] | null>;
+export class PopularTagComponent implements OnInit {
+  popularTag$!: Observable<PopularTag[] | null>;
   isLoading$!: Observable<boolean>;
   error$!: Observable<string | null>;
 
@@ -26,12 +26,16 @@ export class PopularTagsComponent implements OnInit {
   }
 
   initializeValues(): void {
-    this.popularTags$ = this.store.pipe(select(popularTagsSelector));
-    this.isLoading$ = this.store.pipe(select(isLoadingSelector));
-    this.error$ = this.store.pipe(select(errorSelector));
+    this.popularTag$ = this.store.select(popularTagSelector);
+    this.isLoading$ = this.store.select(isLoadingSelector);
+    this.error$ = this.store.select(errorSelector);
+
+    this.popularTag$.subscribe((data) => {
+      console.log(data);
+    });
   }
 
   fetchData(): void {
-    this.store.dispatch(getPopularTagsAction());
+    this.store.dispatch(getPopularTagAction());
   }
 }
