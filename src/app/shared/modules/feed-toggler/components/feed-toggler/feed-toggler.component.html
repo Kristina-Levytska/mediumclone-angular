@@ -22,7 +22,9 @@
         [routerLink]="['/tags, tagNameProps']"
         class="nav-link"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true, tag: tagNameProps }"
       >
+        <i class="ion-pound"></i>
         {{ tagNameProps }}
       </a>
     </li>
