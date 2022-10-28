@@ -1,3 +1,4 @@
+import { PopularTag } from '../modules/popular-tags/types/popular-tags.interface';
 import { ProfileInterface } from './profile.interface';
 
 export interface ArticlesInterface {
@@ -8,7 +9,7 @@ export interface ArticlesInterface {
   favorited: boolean;
   favoritesCount: number;
   slug: string;
-  tagList: string[];
+  tagList: PopularTag[];
   title: string;
   updatedAt: string;
 }
