@@ -15,7 +15,7 @@ const getArticleMock = (): GetArticleResponseInterface => ({
     description: 'My Speech',
     favorited: true,
     favoritesCount: 100500,
-    slug: '',
+    slug: 'my-speech',
     tagList: [PopularTag.President, PopularTag.USA, PopularTag.Freedom],
     title: 'Make America great again!',
     updatedAt: '23/11/1950',

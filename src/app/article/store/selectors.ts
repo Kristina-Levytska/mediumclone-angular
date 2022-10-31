@@ -1,12 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AppStateInterface } from 'src/app/shared/types/app-state.interface';
 import { ArticleStateInterface } from '../types/article-state.interface';
 import { ARTICLE_STORE_KEY } from './reducers';
 
-export const articleFeatureSelector = createFeatureSelector<
-  AppStateInterface,
-  ArticleStateInterface
->(ARTICLE_STORE_KEY);
+export const articleFeatureSelector =
+  createFeatureSelector<ArticleStateInterface>(ARTICLE_STORE_KEY);
 
 export const isLoadingSelector = createSelector(
   articleFeatureSelector,
