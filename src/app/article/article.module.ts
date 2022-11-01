@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ErrorMessageModule } from '../shared/modules/error-message/error-message.module';
 import { IsLoadingModule } from '../shared/modules/is-loading/is-loading.module';
 import { ArticleComponent } from './components/article.component';
+import { TagListModule } from '../shared/modules/tag-list/tag-list.module';
 
 const routes = [
   {
@@ -27,6 +28,7 @@ const routes = [
     ErrorMessageModule,
     IsLoadingModule,
     RouterModule.forChild(routes),
+    TagListModule,
   ],
   exports: [],
   providers: [ArticleService],

@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { combineLatest, map, Observable, Subscription } from 'rxjs';
+import { currentUserSelector } from 'src/app/auth/store/selectors';
 import { ArticlesInterface } from 'src/app/shared/types/articles.interface';
 import { getArticleAction } from '../store/actions/get-article.action';
 import {
@@ -37,7 +38,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   initializeListeners(): void {
     this.articleSubscription = this.store
-      .pipe(select(articleSelector))
+      .select(articleSelector)
       .subscribe((article: ArticlesInterface | null) => {
         this.article = article;
       });
@@ -45,8 +46,20 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   initializeValues(): void {
     this.slug = this.route.snapshot.paramMap.get('slug') as string;
-    this.isLoading$ = this.store.pipe(select(isLoadingSelector));
-    this.error$ = this.store.pipe(select(errorSelector));
+    this.isLoading$ = this.store.select(isLoadingSelector);
+    this.error$ = this.store.select(errorSelector);
+    this.isAuthor$ = combineLatest([
+      //2
+      this.store.select(currentUserSelector),
+      this.store.select(articleSelector),
+    ]).pipe(
+      map(([currentUser, article]) => {
+        if (!article || !currentUser) {
+          return false;
+        }
+        return currentUser.username === article.author.username;
+      })
+    );
   }
 
   fetchData(): void {
