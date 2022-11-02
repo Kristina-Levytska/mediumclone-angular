@@ -16,6 +16,6 @@ export class FeedService {
     // const fullUrl = environment.apiUrl + url;
     // return this.http.get<GetFeedResponseInterface>(fullUrl);
 
-    return mockServer.getFeed();
+    return mockServer.getFeed(url);
   }
 }
