@@ -11,10 +11,10 @@ const mockServer = new ArticleServiceMock();
 @Injectable({
   providedIn: 'root',
 })
-export class ArticleService {
+export class SharedArticleService {
   constructor(private http: HttpClient) {}
 
-  getArticle(slug: String): Observable<ArticlesInterface> {
+  getArticle(slug: string): Observable<ArticlesInterface> {
     // const fullUrl = `${environment.apiUrl}/articles/${slug}`;
 
     // return this.http.get<GetArticleResponseInterface>(fullUrl).pipe(
@@ -23,7 +23,7 @@ export class ArticleService {
     //   })
     // );
 
-    return mockServer.getArticle().pipe(
+    return mockServer.getArticle(slug).pipe(
       map((response: GetArticleResponseInterface) => {
         return response.article;
       })

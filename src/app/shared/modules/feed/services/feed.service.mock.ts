@@ -4,8 +4,9 @@ import { PopularTag } from '../../popular-tags/types/popular-tags.interface';
 import { GetFeedResponseInterface } from '../types/getFeedResponse.interface';
 
 import { parseUrl } from 'query-string';
+import { ArticlesInterface } from 'src/app/shared/types/articles.interface';
 
-const allArticles = [
+export const ALL_ARTICLES_MOCK: ArticlesInterface[] = [
   {
     author: {
       username: 'John Kennedy',
@@ -216,8 +217,8 @@ const getFeedMock = (
   limit: number,
   offset: number
 ): GetFeedResponseInterface => ({
-  articles: allArticles.slice(offset, offset + limit),
-  articlesCount: allArticles.length,
+  articles: ALL_ARTICLES_MOCK.slice(offset, offset + limit),
+  articlesCount: ALL_ARTICLES_MOCK.length,
 });
 
 export class FeedServiceMock {

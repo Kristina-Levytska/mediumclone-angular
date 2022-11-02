@@ -1,29 +1,16 @@
 import { Observable, of } from 'rxjs';
-import { PopularTag } from '../modules/popular-tags/types/popular-tags.interface';
+import { ALL_ARTICLES_MOCK } from '../modules/feed/services/feed.service.mock';
+import { ArticlesInterface } from '../types/articles.interface';
 import { GetArticleResponseInterface } from '../types/get-article-response.interface';
 
-const getArticleMock = (): GetArticleResponseInterface => ({
-  article: {
-    author: {
-      username: 'John Kennedy',
-      bio: null,
-      image: '/assets/img/kennedy.jpg',
-      following: false,
-    },
-    body: 'We shall pay any price, bear any burden, meet any hardship, support any friend, oppose any foe to assure the survival and success of liberty.',
-    createdAt: '22/11/1960',
-    description: 'My Speech',
-    favorited: true,
-    favoritesCount: 100500,
-    slug: 'my-speech',
-    tagList: [PopularTag.President, PopularTag.USA, PopularTag.Freedom],
-    title: 'Make America great again!',
-    updatedAt: '23/11/1950',
-  },
+const getArticleMock = (slugToFind: string): GetArticleResponseInterface => ({
+  article: ALL_ARTICLES_MOCK.find(
+    ({ slug }) => slug === slugToFind
+  ) as ArticlesInterface,
 });
 
 export class ArticleServiceMock {
-  getArticle(): Observable<GetArticleResponseInterface> {
-    return of(getArticleMock());
+  getArticle(slug: string): Observable<GetArticleResponseInterface> {
+    return of(getArticleMock(slug));
   }
 }
