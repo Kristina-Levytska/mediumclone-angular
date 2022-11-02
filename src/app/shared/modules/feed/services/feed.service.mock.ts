@@ -9,7 +9,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'John Kennedy',
         bio: 'President',
-        image: '',
+        image: '/assets/img/kennedy.jpg',
         following: true,
       },
       body: 'We shall pay any price, bear any burden, meet any hardship, support any friend, oppose any foe to assure the survival and success of liberty.',
@@ -26,7 +26,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Eddie Murphy',
         bio: 'Comedian',
-        image: '',
+        image: '/assets/img/eddie_murphy.jpg',
         following: false,
       },
       body: '',
@@ -43,7 +43,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'The Simpsons',
         bio: 'Family',
-        image: '',
+        image: '/assets/img/simpsons.png',
         following: true,
       },
       body: '',
@@ -60,7 +60,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Cinderella',
         bio: 'Family',
-        image: '',
+        image: '/assets/img/cinderella.jpg',
         following: true,
       },
       body: '',
@@ -77,7 +77,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Britney Spears',
         bio: 'Family',
-        image: '',
+        image: '/assets/img/britney.png',
         following: true,
       },
       body: '',
@@ -95,7 +95,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Michael Jackson',
         bio: 'King of Pop',
-        image: '',
+        image: '/assets/img/michael.jpeg',
         following: true,
       },
       body: '',
@@ -112,7 +112,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Elvis Presley',
         bio: 'The King',
-        image: '',
+        image: '/assets/img/elvis.jpg',
         following: false,
       },
       body: '',
@@ -129,7 +129,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Kurt Cobain',
         bio: 'The man who sold the world',
-        image: '',
+        image: '/assets/img/kurt.jpg',
         following: false,
       },
       body: '',
@@ -146,7 +146,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Marshall Bruce Mathers III',
         bio: 'Rap God',
-        image: '',
+        image: '/assets/img/eminem.jpg',
         following: true,
       },
       body: '',
@@ -163,7 +163,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Tupac Shakur',
         bio: 'Makaveli',
-        image: '',
+        image: '/assets/img/tupac.jpg',
         following: true,
       },
       body: '',
@@ -180,7 +180,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'Santa Claus',
         bio: 'Father Winter',
-        image: '',
+        image: '/assets/img/santa.jpg',
         following: false,
       },
       body: '',
@@ -197,7 +197,7 @@ const getFeedMock = (): GetFeedResponseInterface => ({
       author: {
         username: 'George Michael',
         bio: 'Father Figure',
-        image: '',
+        image: '/assets/img/george-michael.jpg',
         following: true,
       },
       body: '',

@@ -7,7 +7,7 @@ const getArticleMock = (): GetArticleResponseInterface => ({
     author: {
       username: 'John Kennedy',
       bio: null,
-      image: '',
+      image: '/assets/img/kennedy.jpg',
       following: false,
     },
     body: 'We shall pay any price, bear any burden, meet any hardship, support any friend, oppose any foe to assure the survival and success of liberty.',
