@@ -1,2 +1,6 @@
 <p>create-article works!</p>
-<lf-article-form></lf-article-form>
+<lf-article-form
+  [initialValuesProps]="initialValues"
+  [isSubmittingProps]="false"
+  (articleSubmitEvent)="onArticleSubmit($event)"
+></lf-article-form>

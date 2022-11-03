@@ -1,1 +1,62 @@
-<p>article form works!</p>
+<div class="editor-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-xs-12">
+        <lf-backend-error-messages
+          *ngIf="errorsProps"
+          [backendErrors]="errorsProps"
+        ></lf-backend-error-messages>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <fieldset class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Article Title"
+                formControlName="title"
+              />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Describe shortly"
+                formControlName="description"
+              />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <textarea
+                class="form-control form-control-lg"
+                rows="8"
+                placeholder="Your article here"
+                formControlName="body"
+              >
+              </textarea>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Tags"
+                formControlName="tagList"
+              />
+            </fieldset>
+
+            <fieldset>
+              <button
+                type="submit"
+                class="btn btn-lg btn-pull-xs-right btn-primary"
+                [disabled]="form.invalid || isSubmittingProps"
+              >
+                Publish article
+              </button>
+            </fieldset>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
