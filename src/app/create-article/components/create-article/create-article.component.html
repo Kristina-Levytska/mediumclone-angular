@@ -1,6 +1,6 @@
-<p>create-article works!</p>
 <lf-article-form
   [initialValuesProps]="initialValues"
-  [isSubmittingProps]="false"
+  [isSubmittingProps]="isSubmitting$ | async"
+  [errorsProps]="validationErrors$ | async"
   (articleSubmitEvent)="onArticleSubmit($event)"
 ></lf-article-form>
