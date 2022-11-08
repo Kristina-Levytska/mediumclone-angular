@@ -1,6 +1,6 @@
-export interface ArticleInputInterface {
-  title: string;
-  description: string;
-  body: string;
-  tagList: string[];
-}
+import { ArticlesInterface } from './articles.interface';
+
+export type ArticleInputInterface = Pick<
+  ArticlesInterface,
+  'title' | 'description' | 'body' | 'tagList' | 'slug'
+>;

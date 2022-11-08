@@ -5,6 +5,9 @@ import { ArticleInputInterface } from 'src/app/shared/types/article-input.interf
 import { ArticlesInterface } from 'src/app/shared/types/articles.interface';
 import { SaveArticleResponseInterface } from 'src/app/shared/types/save-article-response.interface';
 import { environment } from 'src/environments/environment';
+import { CreateArticleServiceMock } from './create-article.service.mock';
+
+const mockService = new CreateArticleServiceMock();
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +18,12 @@ export class createArticleService {
   createArticle(
     articleInput: ArticleInputInterface
   ): Observable<ArticlesInterface> {
-    const fullUrl = environment.apiUrl + '/articles';
+    // const fullUrl = environment.apiUrl + '/articles';
 
-    return this.http
-      .post<SaveArticleResponseInterface>(fullUrl, articleInput)
-      .pipe(map((response: SaveArticleResponseInterface) => response.article));
+    // return this.http
+    //   .post<SaveArticleResponseInterface>(fullUrl, articleInput)
+    //   .pipe(map((response: SaveArticleResponseInterface) => response.article));
+
+    return mockService.createArticle(articleInput);
   }
 }

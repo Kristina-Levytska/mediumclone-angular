@@ -28,6 +28,7 @@ export class ArticleFormComponent implements OnInit {
       description: this.initialValuesProps.description,
       body: this.initialValuesProps.body,
       tagList: this.initialValuesProps.tagList.join(' '),
+      slug: this.initialValuesProps.slug,
     });
   }
 
