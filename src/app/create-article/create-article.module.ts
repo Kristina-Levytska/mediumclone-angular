@@ -4,7 +4,7 @@ import { CreateArticleComponent } from './components/create-article/create-artic
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { ArticleFormModule } from '../shared/modules/article-form/article-form.module';
-import { createArticleService } from './services/create-article.service';
+import { CreateArticleService } from './services/create-article.service';
 import { CreateArticleEffect } from './store/effects/create-article.effect';
 import { CREATE_ARTICLE_STORE_KEY, reducers } from './store/reducers';
 import { StoreModule } from '@ngrx/store';
@@ -25,7 +25,7 @@ const routes = [
     StoreModule.forFeature(CREATE_ARTICLE_STORE_KEY, reducers),
     EffectsModule.forFeature([CreateArticleEffect]),
   ],
-  providers: [createArticleService],
+  providers: [CreateArticleService],
   // exports: []
 })
 export class CreateArticleModule {}

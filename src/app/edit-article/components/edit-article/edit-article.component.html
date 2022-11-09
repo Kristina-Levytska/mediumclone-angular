@@ -1,0 +1,9 @@
+<lf-is-loading *ngIf="isLoading$ | async"></lf-is-loading>
+
+<lf-article-form
+  *ngIf="initialValues$ | async"
+  [initialValuesProps]="initialValues$ | async"
+  [isSubmittingProps]="isSubmitting$ | async"
+  [errorsProps]="validationErrors$ | async"
+  (articleSubmitEvent)="onArticleSubmit($event)"
+></lf-article-form>

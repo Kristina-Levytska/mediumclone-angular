@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { ArticlesInterface } from 'src/app/shared/types/articles.interface';
-import { createArticleService } from '../../services/create-article.service';
+import { CreateArticleService } from '../../services/create-article.service';
 import {
   createArticleAction,
   createArticleFailureAction,
@@ -42,7 +42,7 @@ export class CreateArticleEffect {
 
   constructor(
     private actions$: Actions,
-    private createArticleService: createArticleService,
+    private createArticleService: CreateArticleService,
     private router: Router
   ) {}
 }
