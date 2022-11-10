@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable, map, of, throwError } from 'rxjs';
-import { CurrentUserInterface } from '../shared/types/current-user.interface';
+import { CurrentUserInterface } from '../../shared/types/current-user.interface';
 
 const getUserMock = (): CurrentUserInterface => ({
   id: 1,

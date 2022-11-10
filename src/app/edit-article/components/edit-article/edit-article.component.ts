@@ -35,7 +35,7 @@ export class EditArticleComponent implements OnInit {
     this.route.snapshot.paramMap.get('slug');
     this.isSubmitting$ = this.store.select(isSubmittingSelector);
     this.validationErrors$ = this.store.select(validationErrorsSelector);
-    (this.initialValues$ = this.store.select(articleSelector)),
+    this.initialValues$ = this.store.select(articleSelector).pipe(
       filter(Boolean),
       map((article: ArticlesInterface) => {
         return {
@@ -45,7 +45,8 @@ export class EditArticleComponent implements OnInit {
           tagList: article.tagList,
           slug: article.slug,
         };
-      });
+      })
+    );
     this.isLoading$ = this.store.select(isLoadingSelector);
   }
 

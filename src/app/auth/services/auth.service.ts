@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { RegisterRequestInterface } from '../auth/types/registerRequest.interface';
-import { CurrentUserInterface } from '../shared/types/current-user.interface';
+import { map, Observable, switchMap } from 'rxjs';
+import { RegisterRequestInterface } from '../types/registerRequest.interface';
+import { CurrentUserInterface } from '../../shared/types/current-user.interface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { AuthResponseInterface } from '../auth/types/authResponse.interface';
-import { LoginRequestInterface } from '../auth/types/loginRequest.interface';
+import { AuthResponseInterface } from '../types/authResponse.interface';
+import { LoginRequestInterface } from '../types/loginRequest.interface';
 import { AuthServiceMock } from './auth.service.mock';
+import { threadId } from 'worker_threads';
+import { CurrentUserInputInterface } from 'src/app/shared/types/current-user-input.interface';
 
 const mockServer = new AuthServiceMock();
 
@@ -46,5 +48,14 @@ export class AuthService {
     // return this.http.get(url).pipe(map(this.getUser));
 
     return mockServer.getUser();
+  }
+
+  updateCurrentUser(
+    currentUserInput: CurrentUserInputInterface
+  ): Observable<CurrentUserInterface> {
+    const url = environment.apiUrl + '/user';
+    return this.http
+      .put(url, currentUserInput)
+      .pipe(switchMap(this.getCurrentUser));
   }
 }
