@@ -16,7 +16,14 @@
         {{ article.author.username }}
       </a>
       <span class="date">{{ article.createdAt }}</span>
-      <div class="pull-xs-right">ADD TO FAVORITES</div>
+      <div class="pull-xs-right">
+        <lf-add-to-favorites
+          [isFavorited]="article.favorited"
+          [articleSlug]="article.slug"
+          [favoritesCount]="article.favoritesCount"
+        >
+        </lf-add-to-favorites>
+      </div>
     </div>
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>
