@@ -13,12 +13,14 @@ export class AddToFavoritesComponent implements OnInit {
 
   public favoritesCount!: number;
   public isFavorited!: boolean;
+  // public isLoggedIn!: boolean;
 
   constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.favoritesCount = this.favoritesCountProps;
     this.isFavorited = this.isFavoritedProps;
+    // this.isLoggedIn = this.store.;
   }
 
   handleLike(): void {
