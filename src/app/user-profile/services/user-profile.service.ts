@@ -16,8 +16,6 @@ export class UserProfileService {
 
     return this.http
       .get<GetUserProfileResponseInterface>(url)
-      .pipe(
-        map((response: GetUserProfileResponseInterface) => response.profile)
-      );
+      .pipe(map((response) => response.profile));
   }
 }

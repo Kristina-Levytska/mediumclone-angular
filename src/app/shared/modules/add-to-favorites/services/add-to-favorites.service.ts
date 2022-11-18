@@ -13,12 +13,16 @@ export class AddToFavoritesService {
 
   addToFavorites(slug: string): Observable<ArticlesInterface> {
     const url = this.getUrl(slug);
-    return this.http.post(url, {}).pipe(map(this.getArticle as any));
+    return this.http
+      .post<GetArticleResponseInterface>(url, {})
+      .pipe(map(this.getArticle));
   }
 
   removeFromFavorites(slug: string): Observable<ArticlesInterface> {
     const url = this.getUrl(slug);
-    return this.http.delete(url).pipe(map(this.getArticle as any));
+    return this.http
+      .delete<GetArticleResponseInterface>(url)
+      .pipe(map(this.getArticle));
   }
 
   getUrl(slug: string): string {

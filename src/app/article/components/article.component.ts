@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { combineLatest, map, Observable, Subscription } from 'rxjs';
 import { currentUserSelector } from 'src/app/auth/store/selectors';
 import { ArticlesInterface } from 'src/app/shared/types/articles.interface';

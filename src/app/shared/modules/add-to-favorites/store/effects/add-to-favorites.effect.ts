@@ -33,6 +33,8 @@ export class AddToFavoritesEffect {
     )
   );
 
+  // const isSignedUp = this.router.url.includes({':slug'})
+
   redirectIfNotSignedUp$ = createEffect(
     () =>
       this.actions$.pipe(
